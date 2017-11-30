@@ -1,4 +1,16 @@
-<h3>{{message | async}}</h3>
+<h2>{{message | async}}</h2>
 <button (click)="saludar()"> Saludar en castellano </button>
 <button (click)="salute()"> Saludar en inglés </button>
+
+<div *ngIf="(post | async) as p">
+    <h3>Texto: {{p.text}}</h3>
+    <h3>Likes: {{p.likes}}</h3>
+</div>
+<br/>
+<input type="text" [(ngModel)]="nuevoTexto"/>
+<br/>
+<button (click)="editText()"> Edit text </button>
+<button (click)="like()"> Like </button>
+<button (click)="dislike()"> Dislike </button>
+
 <router-outlet></router-outlet>
